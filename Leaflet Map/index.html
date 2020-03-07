@@ -13,6 +13,10 @@
   crossorigin=""></script>
  <!-- bootstrap -->
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+ <!-- font -->
+ <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+ <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans">
   
   <!-- Our CSS -->
   <link rel="stylesheet" type="text/css" href="style.css">
@@ -20,10 +24,10 @@
 
 <body>
   <!-- text description -->
-  <div class="container">
+  <div class="container bgcolor">
     <div class="row">
       <div class="col-sm">
-        <h1 class="display-4">Mapping NYC Restaurant Grades</h1>
+        <h1 class="display-4 text-primary h1-font">Mapping NYC Restaurant Grades</h1>
         <p>The Department of Heath (DOH) is responsible for conducting restaurant health inspections on all food-handling, food-service establishments in NYC.
           A restaurant’s score corresponds to a letter grade. The lower the score AKA the less violation points, the better the grade.
           </p>
@@ -40,25 +44,26 @@
     </div>
   </div>
   <br>
+<!-- div for plots -->
 <div class="container">
   <div class="row">
-    <div class="col-md-4 plot1">
+    <div class="col-md-4 plot1 bgcolor">
       plot1
     </div>
-    <div class="col-md-4 plot2">
+    <div class="col-md-4 plot2 bgcolor">
       plot2
     </div>
-    <div class="col-md-4 plot3">
+    <div class="col-md-4 plot3 bgcolor">
       plot3
     </div>
   </div>
 </div>
 
 
-
+<br>
 
   <!-- The div where we will inject our map -->
-  <div id="map"></div>
+  <div class="container" id="map"></div>
   <!-- API key -->
   <script type="text/javascript" src="config.js"></script>
   <!-- Our JS -->
