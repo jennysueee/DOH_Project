@@ -1,0 +1,111 @@
+﻿Violation Code,Violation Group,Violation Description,Maximum Penalty
+02A,02,Food temperature storage violation,600
+02B,02,Food temperature storage violation,600
+02C,02,Food temperature storage violation,300
+02D,02,Food temperature storage violation,300
+02E,02,Food temperature storage violation,200
+02F,02,Food temperature storage violation,300
+02G,02,Food temperature storage violation,600
+02H,02,Food temperature storage violation,600
+02I,02,Food temperature storage violation,300
+02J,02,Food temperature storage violation,600
+03A,03,Food not from an approved source,600
+03B,03,Food not from an approved source,600
+03C,03,Food not from an approved source,600
+03D,03,Food not from an approved source,600
+03E,03,Food not from an approved source,600
+03F,03,Food not from an approved source,300
+03G,03,Food not from an approved source,300
+04A,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04B,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04C,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04D,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04E,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04F,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04G,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04H,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",600
+04I,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",300
+04J,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",300
+04K,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",350
+04L,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",350
+04M,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",350
+04N,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",350
+04O,04,"Food contamination with other foods, people, or animals (rats, mice, roaches, etc)",350
+05A,05,Inadequate facilities or absence of proper facilities,600
+05B,05,Inadequate facilities or absence of proper facilities,600
+05C,05,Inadequate facilities or absence of proper facilities,350
+05D,05,Inadequate facilities or absence of proper facilities,350
+05E,05,Inadequate facilities or absence of proper facilities,350
+05F,05,Inadequate facilities or absence of proper facilities,350
+05G,05,Inadequate facilities or absence of proper facilities,350
+05H,05,Inadequate facilities or absence of proper facilities,350
+05I,05,Inadequate facilities or absence of proper facilities,350
+06A,06,Food worker or worker cleaning responsibilities related,350
+06B,06,Food worker or worker cleaning responsibilities related,300
+06C,06,Food worker or worker cleaning responsibilities related,350
+06D,06,Food worker or worker cleaning responsibilities related,300
+06E,06,Food worker or worker cleaning responsibilities related,300
+06F,06,Food worker or worker cleaning responsibilities related,200
+06G,06,Food worker or worker cleaning responsibilities related,600
+06H,06,Food worker or worker cleaning responsibilities related,350
+06I,06,Food worker or worker cleaning responsibilities related,350
+07A,07,Obstruction of Department personnel,1000
+08A,08,Conditions conducive to pests and inadequate garbage removal,200
+08B,08,Conditions conducive to pests and inadequate garbage removal,200
+08C,08,Conditions conducive to pests and inadequate garbage removal,200
+09A,09,Frozen and canned food related,200
+09B,09,Frozen and canned food related,200
+09C,09,Frozen and canned food related,200
+10A,10,Facility and machinery related,200
+10B,10,Facility and machinery related,200
+10C,10,Facility and machinery related,200
+10D,10,Facility and machinery related,200
+10E,10,Facility and machinery related,200
+10F,10,Facility and machinery related,200
+10G,10,Facility and machinery related,200
+10H,10,Facility and machinery related,200
+10I,10,Facility and machinery related,200
+10J,10,Facility and machinery related,200
+15A,15,Tobacco and smoking related,1000
+15B,15,Tobacco and smoking related,1000
+15C,15,Tobacco and smoking related,1000
+15D,15,Tobacco and smoking related,1000
+15E,15,Tobacco and smoking related,2000
+15F,15,Tobacco and smoking related,2000
+15G,15,Tobacco and smoking related,2000
+15H,15,Tobacco and smoking related,2000
+15I,15,Tobacco and smoking related,1000
+15J,15,Tobacco and smoking related,1000
+15K,15,Tobacco and smoking related,1600
+15L,15,Tobacco and smoking related,1000
+15M,15,Tobacco and smoking related,50
+15N,15,Tobacco and smoking related,5000
+15O,15,Tobacco and smoking related,2000
+15S,15,Tobacco and smoking related,500
+15T,15,Tobacco and smoking related,500
+16A,16,Related to nutritional information,200
+16B,16,Related to nutritional information,200
+16C,16,Related to nutritional information,200
+16D,16,Related to nutritional information,200
+16E,16,Related to nutritional information,200
+16F,16,Related to nutritional information,200
+18A,18,"Related to DOH documentation, permits, and noncompliance",1000
+18B,18,"Related to DOH documentation, permits, and noncompliance",1000
+18C,18,"Related to DOH documentation, permits, and noncompliance",1000
+18D,18,"Related to DOH documentation, permits, and noncompliance",1000
+18E,18,"Related to DOH documentation, permits, and noncompliance",200
+18F,18,"Related to DOH documentation, permits, and noncompliance",200
+18G,18,"Related to DOH documentation, permits, and noncompliance",200
+18H,18,"Related to DOH documentation, permits, and noncompliance",500
+20A,20,Mandatory signage not posted,100
+20B,20,Mandatory signage not posted,100
+20C,20,Mandatory signage not posted,100
+20D,20,Mandatory signage not posted,200
+20E,20,Mandatory signage not posted,500
+20F,20,Mandatory signage not posted,1000
+22A,22,Failure to take reasonable precautions to protect health and safety,1000
+22B,22,Failure to take reasonable precautions to protect health and safety,200
+22C,22,Failure to take reasonable precautions to protect health and safety,200
+22E,22,Failure to take reasonable precautions to protect health and safety,200
+22F,22,Failure to take reasonable precautions to protect health and safety,1000
+22G,22,Failure to take reasonable precautions to protect health and safety,200
