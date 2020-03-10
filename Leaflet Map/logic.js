@@ -1,136 +1,60 @@
-// Function to determine marker size based on population
-function markerSize(population) {
-  return population / 40;
+function createMap(bikeStations) {
+
+  // Create the tile layer that will be the background of our map
+  var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
+    attribution: "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://mapbox.com\">Mapbox</a>",
+    maxZoom: 18,
+    id: "mapbox.light",
+    accessToken: API_KEY
+  });
+
+  // Create a baseMaps object to hold the lightmap layer
+  var baseMaps = {
+    "Light Map": lightmap
+  };
+
+  // Create an overlayMaps object to hold the bikeStations layer
+  var overlayMaps = {
+    "Bike Stations": bikeStations
+  };
+
+  // Create the map object with options
+  var map = L.map("map-id", {
+    center: [40.73, -74.0059],
+    zoom: 12,
+    layers: [lightmap, bikeStations]
+  });
+
+  // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
+  L.control.layers(baseMaps, overlayMaps, {
+    collapsed: false
+  }).addTo(map);
 }
 
-// An array containing all of the information needed to create city and state markers
-var locations = [
-  {
-    coordinates: [40.7128, -74.0059],
-    state: {
-      name: "New York State",
-      population: 19795791
-    },
-    city: {
-      name: "New York",
-      population: 8550405
-    }
-  },
-  {
-    coordinates: [34.0522, -118.2437],
-    state: {
-      name: "California",
-      population: 39250017
-    },
-    city: {
-      name: "Lost Angeles",
-      population: 3971883
-    }
-  },
-  {
-    coordinates: [41.8781, -87.6298],
-    state: {
-      name: "Michigan",
-      population: 9928300
-    },
-    city: {
-      name: "Chicago",
-      population: 2720546
-    }
-  },
-  {
-    coordinates: [29.7604, -95.3698],
-    state: {
-      name: "Texas",
-      population: 26960000
-    },
-    city: {
-      name: "Houston",
-      population: 2296224
-    }
-  },
-  {
-    coordinates: [41.2524, -95.9980],
-    state: {
-      name: "Nebraska",
-      population: 1882000
-    },
-    city: {
-      name: "Omaha",
-      population: 446599
-    }
+function createMarkers(response) {
+
+  // Pull the "stations" property off of response.data
+  var stations = response.data.stations;
+
+  // Initialize an array to hold bike markers
+  var bikeMarkers = [];
+
+  // Loop through the stations array
+  for (var index = 0; index < stations.length; index++) {
+    var station = stations[index];
+
+    // For each station, create a marker and bind a popup with the station's name
+    var bikeMarker = L.marker([station.lat, station.lon])
+      .bindPopup("<h3>" + station.name + "<h3><h3>Capacity: " + station.capacity + "<h3>");
+
+    // Add the marker to the bikeMarkers array
+    bikeMarkers.push(bikeMarker);
   }
-];
 
-// Define arrays to hold created city and state markers
-var cityMarkers = [];
-var stateMarkers = [];
-
-// Loop through locations and create city and state markers
-for (var i = 0; i < locations.length; i++) {
-  // Setting the marker radius for the state by passing population into the markerSize function
-  stateMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "white",
-      fillColor: "white",
-      radius: markerSize(locations[i].state.population)
-    })
-  );
-
-  // Setting the marker radius for the city by passing population into the markerSize function
-  cityMarkers.push(
-    L.circle(locations[i].coordinates, {
-      stroke: false,
-      fillOpacity: 0.75,
-      color: "purple",
-      fillColor: "purple",
-      radius: markerSize(locations[i].city.population)
-    })
-  );
+  // Create a layer group made from the bike markers array, pass it into the createMap function
+  createMap(L.layerGroup(bikeMarkers));
 }
 
-// Define variables for our base layers
-var streetmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
-  id: "mapbox.streets",
-  accessToken: API_KEY
-});
 
-var darkmap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
-  id: "mapbox.dark",
-  accessToken: API_KEY
-});
-
-// Create two separate layer groups: one for cities and one for states
-var states = L.layerGroup(stateMarkers);
-var cities = L.layerGroup(cityMarkers);
-
-// Create a baseMaps object
-var baseMaps = {
-  "Street Map": streetmap,
-  "Dark Map": darkmap
-};
-
-// Create an overlay object
-var overlayMaps = {
-  "State Population": states,
-  "City Population": cities
-};
-
-// Define a map object
-var myMap = L.map("map", {
-  center: [37.09, -95.71],
-  zoom: 5,
-  layers: [streetmap, states, cities]
-});
-
-// Pass our map layers into our layer control
-// Add the layer control to the map
-L.control.layers(baseMaps, overlayMaps, {
-  collapsed: false
-}).addTo(myMap);
+// Perform an API call to the Citi Bike API to get station information. Call createMarkers when complete
+d3.json("https://gbfs.citibikenyc.com/gbfs/en/station_information.json", createMarkers);
