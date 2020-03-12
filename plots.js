@@ -5,13 +5,14 @@ var data = [{
   type: 'pie'
 }];
 
-var layout = {
-  height: 400,
-  width: 500,
-  title: "Restaraunt Grades in Manhattan - March 2020"
+var layout1 = {
+  // height: 400,
+  // width: 500,
+  title: "Restaraunt Grades in Manhattan - March 2020",
+  automargin: true
 };
 
-Plotly.newPlot('plot', data, layout);
+Plotly.newPlot('piechart-emma', data, layout1);
 
 //BAR CHART - TOP 10 VIOLATION CATEGORIES
 var trace1 = {
@@ -26,11 +27,15 @@ var trace1 = {
 
 var data = [trace1];
 
-var layout = {
-  title: "Top 5 DOH Violation Categories in Manhattan",
+var layout2 = {
+  title: "Top 5 DOH Violation Categories in Manhattan - March 2020",
   xaxis: { title: "Type of Violation", tickangle: 0, automargin : true },
   yaxis: { title: "# of Violations", automargin : true},
-  //automargin: true,
+  // width: "100%"
+  automargin: true,
+  font: {
+    size:7
+  }
 };
 
-Plotly.newPlot("plot", data, layout);
+Plotly.newPlot("barchart-emma", data, layout2);
