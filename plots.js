@@ -11,7 +11,7 @@ var layout = {
   title: "Restaraunt Grades in Manhattan - March 2020"
 };
 
-Plotly.newPlot('plot', data, layout);
+Plotly.newPlot('plot1', data, layout);
 
 //BAR CHART - TOP 10 VIOLATION CATEGORIES
 var trace1 = {
@@ -33,4 +33,4 @@ var layout = {
   automargin: true,
 };
 
-Plotly.newPlot("plot", data, layout);
+Plotly.newPlot("plot2", data, layout);
