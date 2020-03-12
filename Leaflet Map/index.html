@@ -27,7 +27,7 @@
   <div class="container bgcolor">
     <div class="row">
       <div class="col-sm">
-        <h1 class="display-4 text-primary h1-font">Mapping NYC Restaurant Grades</h1>
+        <h1 class="display-4 text-primary h1-font">Mapping Manhattan Restaurant Grades <img src="images/dinner.png" height= "50"></h1> 
         <p>The Department of Heath (DOH) is responsible for conducting restaurant health inspections on all food-handling, food-service establishments in NYC.
           A restaurant’s score corresponds to a letter grade. The lower the score AKA the less violation points, the better the grade.
           </p>
@@ -47,14 +47,14 @@
 <!-- div for plots -->
 <div class="container">
   <div class="row">
-    <div class="col-md-4 plot1 bgcolor">
-      plot1
+    <div class="col-md-4 plot" id="plot1">
+      
     </div>
-    <div class="col-md-4 plot2 bgcolor">
-      plot2
+    <div class="col-md-4 plot" id="plot2">
+      
     </div>
-    <div class="col-md-4 plot3 bgcolor">
-      plot3
+    <div class="col-md-4 plot" id="plot3">
+      
     </div>
   </div>
 </div>
@@ -62,18 +62,29 @@
 
 <br>
 
+
   <!-- The div where we will inject our map -->
   <div class="container" id="map-id"></div>
+<br>
+<br>
+<small>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></small>
+
+
+
+
+
   <!-- API key -->
   <script type="text/javascript" src="config.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
   <!-- Our JS -->
   <script type="text/javascript" src="logic.js"></script>
-  <!-- d3 and plotly -->
+  <!-- plotly code -->
+  <script src="../plots.js"></script>
   
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
   
 </body>
 </html>
