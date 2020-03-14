@@ -1,4 +1,4 @@
-function createMap(bikeStations) {
+function createMap(Restaurant) {
 
   // Create the tile layer that will be the background of our map
   var lightmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}", {
@@ -15,14 +15,14 @@ function createMap(bikeStations) {
 
   // Create an overlayMaps object to hold the bikeStations layer
   var overlayMaps = {
-    "Bike Stations": bikeStations
+    "Restaurants": Restaurant
   };
 
   // Create the map object with options
   var map = L.map("map-id", {
     center: [40.73, -74.0059],
     zoom: 12,
-    layers: [lightmap, bikeStations]
+    layers: [lightmap, Restaurant]
   });
 
   // Create a layer control, pass in the baseMaps and overlayMaps. Add the layer control to the map
@@ -31,30 +31,31 @@ function createMap(bikeStations) {
   }).addTo(map);
 }
 
+// THIS IS WHERE WE'RE UPDATING STUFF
 function createMarkers(response) {
 
-  // Pull the "stations" property off of response.data
-  var stations = response.data.stations;
+  // Pull data off of response.data
+  var rest = response.data;
 
   // Initialize an array to hold bike markers
-  var bikeMarkers = [];
+  var restaurantMarkers = [];
 
   // Loop through the stations array
-  for (var index = 0; index < stations.length; index++) {
-    var station = stations[index];
+  for (var index = 0; index < rest.length; index++) {
+    var restaurantthing = rest[index];
 
     // For each station, create a marker and bind a popup with the station's name
-    var bikeMarker = L.marker([station.lat, station.lon])
-      .bindPopup("<h3>" + station.name + "<h3><h3>Capacity: " + station.capacity + "<h3>");
+    var restMarker = L.marker([data.Latitude, data.Longitude])
+      .bindPopup("<h3>" + restaurantthing.Name + "<h3><h3>Cuisine: " + restaurantthing.Cuisine + "<h3><h3>Grade: " + restaurantthing.Grade);
 
     // Add the marker to the bikeMarkers array
-    bikeMarkers.push(bikeMarker);
+    restaurantMarkers.push(restMarker);
   }
 
   // Create a layer group made from the bike markers array, pass it into the createMap function
-  createMap(L.layerGroup(bikeMarkers));
+  createMap(L.layerGroup(restaurantMarkers));
 }
 
 
 // Perform an API call to the Citi Bike API to get station information. Call createMarkers when complete
-d3.json("https://gbfs.citibikenyc.com/gbfs/en/station_information.json", createMarkers);
+d3.json("http://127.0.0.1:5000/c", createMarkers);
