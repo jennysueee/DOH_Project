@@ -1,11 +1,12 @@
 from flask import Flask, redirect, jsonify
 from flask_pymongo import PyMongo
+from flask_cors import CORS
 import requests
 import json
 from bson.json_util import dumps
 
 app = Flask(__name__)
-
+CORS(app)
 mongo = PyMongo(app, uri="mongodb://localhost:27017/restaurantgradesDB")
 
 @app.route('/')
